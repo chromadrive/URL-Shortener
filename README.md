@@ -5,7 +5,7 @@ Small demo of a URL shortening service - you put a long URL in, it gives you an 
 Built with **Flask**, **SQLite**, and a dash of **Bootstrap**. Eventually I'd love to learn how to do this with Django and Redis, but that'll have to wait.
 
 ## Setup
-Clone this repository somewhere on your local machine, then use a virtualenv (`sudo apt install virtualenv` if you don't have it already):
+Install SQLite3 (`sudo apt install sqlite3`) if you don't have it already. Clone this repository somewhere on your local machine, then use a virtualenv (`sudo apt install virtualenv` to install):
 
 ```
 virtualenv urlshortener
