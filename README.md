@@ -1,4 +1,4 @@
-#URL Shortener Demo
+# URL Shortener Demo
 
 Small demo of a URL shortening service - you put a long URL in, it gives you an abridged URL that redirects to your original one. Made as a trial-by-fire project for learning Flask and SQL... and it actually works!
 
