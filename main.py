@@ -7,7 +7,7 @@ except ImportError:
     from urlparse import urlparse  # Python 2 (ugh)
 
 host = 'http://localhost:5000/' # Change for deployment
-database = 'database.db'
+database = 'database.db' # Change if database is named differently
 
 # Creates a table if one doesn't exist already. Assumes
 #   that your database (specified above) is in proj root.
@@ -28,10 +28,10 @@ def validate_table():
 # Where the flasky stuff starts!
 app = Flask(__name__)
 
-# Home page where user should enter 
+# Home page where user should enter
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    if request.method == 'POST':
+    if request.method == 'POST': # Form has been submitted
         original_url = request.form.get('url')
         if urlparse(original_url).scheme == '':
             original_url = 'http://' + original_url
@@ -46,10 +46,10 @@ def index():
     else:
     	return render_template('index.html')
 
-@app.route('/<short_url>') # Reached with localhost:5000/<code>
+@app.route('/<short_url>') # Reached with <host>/<short_url>
 def redirect_short_url(short_url):
     decoded_string = utils.convert_alpha_to_num(short_url)
-    redirect_url = host # Fallback, in case something goes wrong
+    redirect_url = host # Fallback, in case ID can't be found
     with sqlite3.connect(database) as connection:
         cursor = connection.cursor()
         result_cursor = cursor.execute(
